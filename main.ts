@@ -19,6 +19,9 @@ function validate(word: string): void {
   if (/\s/.test(word)) {
     throw new Error("entry must be a single word with no whitespace");
   }
+  if (/[^a-z]/.test(word)) {
+    throw new Error("entry must be one lowercase word (letters only)");
+  }
 }
 
 const outDir: string = process.env.MAKEFUN_OUTPUT_DIR ?? "/output";
